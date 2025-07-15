@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Client Login - National Water Company</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #a6c0fe, #f68084);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 360px;
+      text-align: center;
+    }
+
+    .login-card h2 {
+      color: #007bff;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .login-card .subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 14px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .bottom-link {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .fas {
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h2>Welcome</h2>
+    <p class="subtitle">Please log in to continue</p>
+
+    <form action="client_login.php" method="POST">
+      <label for="user_id">National ID:</label>
+      <input type="text" name="user_id" id="user_id" required placeholder="Enter National ID">
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required placeholder="Enter Password">
+
+      <button type="submit">Login</button>
+
+      <!-- Top links row -->
+      <div class="links">
+        <a href="forgot_password.html"><i class="fas fa-key"></i> Forgot Password?</a>
+        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a> <!-- ✅ Updated here -->
+      </div>
+
+      <!-- Centered link for employee login -->
+      <div class="bottom-link">
+        <a href="employee_login.html"><i class="fas fa-user-tie"></i> Employee Login</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Login - National Water Company</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="bg-animation"></div>
+
+  <div class="login-card">
+    <h2>Employee Login</h2>
+
+    <form action="employee_login.php" method="POST">
+      <label for="user_id">Employee ID:</label>
+      <input type="text" name="user_id" id="user_id" required placeholder="Enter Employee ID">
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required placeholder="Enter Password">
+
+      <button type="submit">Login</button>
+
+      <div class="links">
+        <a href="forgot_password.html">Forgot Password?</a>
+        <a href="client_login.html">Back to Client Login</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

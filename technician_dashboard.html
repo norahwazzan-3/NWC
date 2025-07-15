@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Technician Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/technician.css" />
+  <script src="scripts/technician.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <a href="technician_profile.html" class="profile-button">
+        <div class="profile-card-sidebar">
+          <img src="https://em-content.zobj.net/thumbs/240/apple/354/man-construction-worker_1f477-200d-2642-fe0f.png"
+               alt="Technician" class="profile-icon">
+          <h3>Ahmed Al-Fahad</h3>
+          <p>Field Technician</p>
+        </div>
+      </a>
+
+      <ul>
+        <li><a href="#">🏠 Home</a></li>
+        <li><a href="#">🧰 My Tasks</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+      <h1>🧰 My Field Tasks</h1>
+      
+      <!-- Summary -->
+      <div class="summary">
+        <span id="assigned-count">Assigned: 0</span>
+        <span id="inprogress-count">In Progress: 0</span>
+        <span id="completed-count">Completed: 0</span>
+      </div>
+
+      <!-- Search -->
+      <input type="text" id="searchInput" placeholder="🔍 Search status...">
+
+      <!-- Tasks List -->
+      <div class="tasks">
+
+        <!-- Task 1 -->
+        <div class="task-card" data-status="Assigned">
+          <h2>🛠️ Task #1001</h2>
+          <p><strong>Type:</strong> Maintenance</p>
+          <p><strong>Customer:</strong> John Doe</p>
+          <p><strong>Location:</strong> 123 Elm St</p>
+          <p><strong>Assigned By:</strong> Eng. Ali Al-Qahtani</p>
+          <p><strong>Status:</strong> <span class="badge assigned">Assigned</span></p>
+
+          <label>Note:</label>
+          <textarea placeholder="Write notes..."></textarea>
+
+          <label>Upload Photo:</label>
+          <input type="file" accept="image/*" />
+
+          <div class="actions">
+            <button class="btn start" onclick="startTask(this)">Start</button>
+            <button class="btn complete" onclick="completeTask(this)">Complete</button>
+          </div>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="task-card" data-status="In Progress">
+          <h2>🛠️ Task #1002</h2>
+          <p><strong>Type:</strong> Complaint</p>
+          <p><strong>Customer:</strong> Maryam Salem</p>
+          <p><strong>Location:</strong> Al Olaya</p>
+          <p><strong>Assigned By:</strong> Supervisor Mona Al-Salem</p>
+          <p><strong>Status:</strong> <span class="badge in-progress">In Progress</span></p>
+
+          <label>Note:</label>
+          <textarea placeholder="Write notes..."></textarea>
+
+          <label>Upload Photo:</label>
+          <input type="file" accept="image/*" />
+
+          <div class="actions">
+            <button class="btn complete" onclick="completeTask(this)">Complete</button>
+          </div>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="task-card" data-status="Completed">
+          <h2>🛠️ Task #1003</h2>
+          <p><strong>Type:</strong> New Meter Installation</p>
+          <p><strong>Customer:</strong> Talal Bin Saud</p>
+          <p><strong>Location:</strong> Al Yasmeen</p>
+          <p><strong>Assigned By:</strong> Supervisor Fahad Al-Rashid</p>
+          <p><strong>Status:</strong> <span class="badge completed">Completed</span></p>
+
+          <label>Note:</label>
+          <textarea readonly>This task was completed on 12 July.</textarea>
+
+          <label>Upload Photo:</label>
+          <input type="file" disabled />
+
+          <div class="actions">
+            <button class="btn" disabled>Completed</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>

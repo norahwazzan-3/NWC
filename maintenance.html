@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maintenance Request</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-white min-h-screen flex items-center justify-center p-6">
+  <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-3xl">
+    <h2 class="text-3xl font-extrabold text-blue-800 mb-6 text-center">Maintenance Request</h2>
+    <form action="submit_request.php" method="POST" enctype="multipart/form-data" class="space-y-5">
+      <input type="hidden" name="service_type" value="request_call">
+
+      <!-- Area -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-medium">Select Area in KSA</label>
+        <select name="area" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+          <option value="">-- Select Area --</option>
+          <option value="riyadh">Riyadh</option>
+          <option value="jeddah">Jeddah</option>
+          <option value="dammam">Dammam</option>
+          <option value="makkah">Makkah</option>
+          <option value="madinah">Madinah</option>
+          <option value="abha">Abha</option>
+          <option value="tabuk">Tabuk</option>
+          <option value="alqassim">Al-Qassim</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <!-- City -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-medium">Select City</label>
+        <select name="city" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+          <option value="">-- Select City --</option>
+          <option value="buraydah">Buraydah</option>
+          <option value="unayzah">Unaizah</option>
+          <option value="hail">Hail</option>
+          <option value="jazan">Jazan</option>
+          <option value="najran">Najran</option>
+          <option value="al-khobar">Al-Khobar</option>
+          <option value="qatif">Qatif</option>
+          <option value="yanbu">Yanbu</option>
+          <option value="sakaka">Sakaka</option>
+          <option value="al-hasa">Al-Hasa</option>
+        </select>
+      </div>
+
+      <!-- Address -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-medium">Address</label>
+        <input type="text" name="address" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Maintenance Type -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-medium">Maintenance Type</label>
+        <select name="maintenance_type" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+          <option value="">-- Select --</option>
+          <option value="leaks">Leaks</option>
+          <option value="meter">Meter</option>
+          <option value="sewage">Sewage</option>
+        </select>
+      </div>
+
+      <!-- Issue Description -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-medium">Issue Description</label>
+        <textarea name="call_reason" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"></textarea>
+      </div>
+
+      <!-- Preferred Time -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-medium">Preferred Time</label>
+        <input type="time" name="preferred_time" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- File Upload -->
+      <div>
+        <label class="block mb-2 text-gray-700 font-medium">Upload Image or Video (optional)</label>
+        <input type="file" name="attachment" accept="image/*,video/*" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md">
+        Submit Request
+      </button>
+    </form>
+  </div>
+</body>
+</html>

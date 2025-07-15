@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Approved Requests – NWC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    let openDropdownRow = null;
+
+    function toggleTechnicianDropdown(button) {
+      // إغلاق القائمة المفتوحة سابقاً إن وجدت
+      if (openDropdownRow && openDropdownRow !== button.closest('tr')) {
+        const oldDropdown = openDropdownRow.querySelector('.tech-dropdown');
+        if (oldDropdown) oldDropdown.classList.add('hidden');
+      }
+
+      // فتح القائمة في الصف الحالي
+      const row = button.closest('tr');
+      const dropdown = row.querySelector('.tech-dropdown');
+      dropdown.classList.toggle('hidden');
+
+      openDropdownRow = row;
+    }
+
+    function reassignTechnician(requestId, technicianName) {
+      if (technicianName) {
+        alert(`Request ${requestId} reassigned to ${technicianName}`);
+        // هنا يمكنك استخدام AJAX أو ربط بالخلفية PHP
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 p-6 min-h-screen">
+  <h1 class="text-2xl font-bold text-blue-700 mb-6">Approved Requests</h1>
+  <div class="overflow-x-auto">
+    <table class="w-full bg-white shadow-md rounded-lg">
+      <thead>
+        <tr class="bg-blue-100 text-left">
+          <th class="p-3">Request ID</th>
+          <th class="p-3">Customer</th>
+          <th class="p-3">Service Type</th>
+          <th class="p-3">Approved Date</th>
+          <th class="p-3">Status</th>
+          <th class="p-3">Technician</th>
+          <th class="p-3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t hover:bg-gray-50">
+          <td class="p-3">REQ0456</td>
+          <td class="p-3">Ahmad Salem</td>
+          <td class="p-3">New Connection</td>
+          <td class="p-3">2025-07-01</td>
+          <td class="p-3 text-yellow-600 font-semibold">In Progress</td>
+          <td class="p-3">Mohammed Ali</td>
+          <td class="p-3 space-y-2">
+            <button onclick="toggleTechnicianDropdown(this)" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+              Reassign
+            </button>
+            <div class="tech-dropdown hidden mt-2">
+              <select onchange="reassignTechnician('REQ0456', this.value)" class="border px-3 py-1 rounded">
+                <option value="">Select Technician</option>
+                <option value="Mohammed Ali">Mohammed Ali</option>
+                <option value="Fatima Hasan">Fatima Hasan</option>
+                <option value="Saleh Nasser">Saleh Nasser</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+
+        <!-- مثال إضافي -->
+        <tr class="border-t hover:bg-gray-50">
+          <td class="p-3">REQ0457</td>
+          <td class="p-3">Sara Khaled</td>
+          <td class="p-3">Maintenance</td>
+          <td class="p-3">2025-07-02</td>
+          <td class="p-3 text-yellow-600 font-semibold">In Progress</td>
+          <td class="p-3">Fatima Hasan</td>
+          <td class="p-3 space-y-2">
+            <button onclick="toggleTechnicianDropdown(this)" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+              Reassign
+            </button>
+            <div class="tech-dropdown hidden mt-2">
+              <select onchange="reassignTechnician('REQ0457', this.value)" class="border px-3 py-1 rounded">
+                <option value="">Select Technician</option>
+                <option value="Mohammed Ali">Mohammed Ali</option>
+                <option value="Fatima Hasan">Fatima Hasan</option>
+                <option value="Saleh Nasser">Saleh Nasser</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
+

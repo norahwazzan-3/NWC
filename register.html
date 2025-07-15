@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register – National Water Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-white min-h-screen flex items-center justify-center p-6">
+
+  <div class="bg-white shadow-2xl rounded-2xl w-full max-w-lg p-8 border border-blue-100">
+    <div class="text-center mb-6">
+      <h1 class="text-3xl font-extrabold text-blue-800 mb-2">Create Account</h1>
+      <p class="text-gray-500">Register to access National Water Services</p>
+    </div>
+
+    <form action="register.php" method="POST" class="space-y-5">
+
+      <!-- Full Name -->
+      <div>
+        <label for="full_name" class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input type="text" id="full_name" name="full_name" required
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- National ID -->
+      <div>
+        <label for="national_id" class="block text-sm font-medium text-gray-700">National ID</label>
+        <input type="text" id="national_id" name="national_id" required
+          pattern="\d{10}" title="National ID must be 10 digits"
+          placeholder="10-digit ID"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+        <input type="text" id="phone" name="phone" required
+          pattern="\d{10}" title="Phone must be 10 digits"
+          placeholder="05XXXXXXXX"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" id="email" name="email" required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.(com|net|org)$"
+          placeholder="example@email.com"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- Date of Birth -->
+      <div>
+        <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg text-gray-600 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="password" name="password" required
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
+          title="At least 8 characters with uppercase, lowercase, number, and symbol"
+          placeholder="Secure password"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" required
+          placeholder="Repeat password"
+          class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      </div>
+
+      <!-- Terms and Email -->
+      <div class="space-y-2">
+        <label class="inline-flex items-start">
+          <input type="checkbox" name="agree_terms" required class="mt-1 mr-2">
+          <span class="text-sm text-gray-700">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms and Conditions</a></span>
+        </label>
+        <p></p>
+        <label class="inline-flex items-start">
+          <input type="checkbox" name="email_updates" class="mt-1 mr-2">
+          <span class="text-sm text-gray-700">Send me updates by email</span>
+        </label>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+        class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md">
+        Register
+      </button>
+
+      <!-- Login Link -->
+      <p class="mt-4 text-sm text-center text-gray-600">
+        Already have an account?
+        <a href="client_login.html" class="text-blue-600 hover:underline">Login</a>
+      </p>
+    </form>
+  </div>
+</body>
+</html>

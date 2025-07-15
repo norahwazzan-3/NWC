@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Technician Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #eaf0f8, #dbe8f3);
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .profile-container {
+      background: #fff;
+      max-width: 500px;
+      width: 100%;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .profile-header {
+      margin-bottom: 30px;
+    }
+
+    .profile-header img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 4px solid #007bff;
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .profile-header h2 {
+      font-size: 24px;
+      color: #2c3e50;
+      margin: 15px 0 5px;
+    }
+
+    .profile-header p {
+      color: #6c757d;
+      font-size: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      background-color: #f8f9fa;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-header">
+      <img src="https://em-content.zobj.net/thumbs/240/apple/354/man-construction-worker_1f477-200d-2642-fe0f.png" alt="Technician Photo">
+      <h2>Ahmed Al-Fahad</h2>
+      <p>Field Technician - National Water Company</p>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" value="Ahmed Al-Fahad" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="job">Job Title</label>
+      <input type="text" id="job" value="Field Technician" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input type="text" id="company" value="National Water Company" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" value="ahmed.fahad@nwc.sa" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" value="0501234567" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="manager">Supervisor</label>
+      <input type="text" id="manager" value="Eng. Ali Al-Qahtani" readonly>
+    </div>
+
+    <a class="back-link" href="technician_dashboard.html">&larr; Back to Dashboard</a>
+  </div>
+</body>
+</html>

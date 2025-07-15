@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billing – National Water Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function showBills() {
+      const selected = document.getElementById('meter_select').value;
+      const billsSection = document.getElementById('bills_section');
+      const paymentOptions = document.getElementById('payment_options');
+      if (selected) {
+        billsSection.classList.remove('hidden');
+        paymentOptions.classList.add('hidden');
+      } else {
+        billsSection.classList.add('hidden');
+      }
+    }
+
+    function showPaymentOptions(billId) {
+      const paymentOptions = document.getElementById('payment_options');
+      document.getElementById('bill_to_pay').textContent = billId;
+      paymentOptions.classList.remove('hidden');
+      // Scroll to payment options
+      paymentOptions.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+
+  <!-- Sidebar -->
+  <div class="bg-blue-800 text-white w-64 min-h-screen p-4">
+    <h2 class="text-2xl font-bold mb-8">NWC User</h2>
+    <nav class="space-y-4">
+      <a href="user-dashboard.html" class="block hover:bg-blue-700 px-3 py-2 rounded">Dashboard</a>
+      <a href="my-requests.html" class="block hover:bg-blue-700 px-3 py-2 rounded">My Requests</a>
+      <a href="bills.html" class="block hover:bg-blue-700 px-3 py-2 rounded">Bills & Payments</a>
+      <a href="notifications.html" class="block hover:bg-blue-700 px-3 py-2 rounded">Notifications</a>
+      <a href="settings.html" class="block hover:bg-blue-700 px-3 py-2 rounded">Settings</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 p-6">
+    <!-- Top Bar -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold text-gray-700">Bills & Payments</h1>
+      <div class="flex items-center space-x-4">
+        <span class="text-gray-700">Welcome, User Name</span>
+        <button class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Logout</button>
+      </div>
+    </div>
+
+    <!-- Meter Selection -->
+    <div class="bg-white rounded shadow p-6 mb-6">
+      <label for="meter_select" class="block text-gray-700 mb-2 font-semibold">Select Meter Number</label>
+      <select id="meter_select" onchange="showBills()" class="w-full border border-gray-300 rounded px-3 py-2">
+        <option value="">-- Select a meter --</option>
+        <option value="MTR001">MTR001</option>
+        <option value="MTR002">MTR002</option>
+        <option value="MTR003">MTR003</option>
+      </select>
+    </div>
+
+    <!-- Bills Table -->
+    <div id="bills_section" class="bg-white rounded shadow p-6 hidden">
+      <h2 class="text-xl font-bold mb-4 text-gray-700">My Bills</h2>
+      <table class="w-full text-left">
+        <thead>
+          <tr class="border-b">
+            <th class="pb-2">Bill ID</th>
+            <th class="pb-2">Amount (SAR)</th>
+            <th class="pb-2">Due Date</th>
+            <th class="pb-2">Status</th>
+            <th class="pb-2">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="py-2">BILL1001</td>
+            <td class="py-2">150.00</td>
+            <td class="py-2">2025-07-15</td>
+            <td class="py-2"><span class="bg-red-200 text-red-800 px-2 py-1 rounded text-sm">Unpaid</span></td>
+            <td class="py-2">
+              <button onclick="showPaymentOptions('BILL1001')" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">Pay</button>
+            </td>
+          </tr>
+          <tr class="border-b">
+            <td class="py-2">BILL1000</td>
+            <td class="py-2">120.00</td>
+            <td class="py-2">2025-06-15</td>
+            <td class="py-2"><span class="bg-green-200 text-green-800 px-2 py-1 rounded text-sm">Paid</span></td>
+            <td class="py-2">
+              <button class="bg-gray-400 text-white px-3 py-1 rounded cursor-not-allowed" disabled>Paid</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Payment Options -->
+    <div id="payment_options" class="bg-white rounded shadow p-6 mt-6 hidden">
+      <h2 class="text-xl font-bold mb-4 text-gray-700">Payment Methods for <span id="bill_to_pay"></span></h2>
+      <div class="space-y-3">
+        <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Mada</button>
+        <button class="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600">Visa / MasterCard</button>
+        <button class="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-900"> Apple Pay</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
