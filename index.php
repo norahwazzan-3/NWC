@@ -240,11 +240,11 @@ $user_name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest';
     <div class="services-column">
       <div class="card">
          <p class="service-description">Apply for a new water meter installation for your property.</p>
-        <a href="#" class="service-link">Request a New Water Meter</a>
+         <a href="#" class="service-link">Request a New Water Meter</a>
       </div>
       <div class="card">
-        <p class="service-description">Register a meter that is already installed but not yet in the system.</p>
-        <a href="#" class="service-link">Register an Unregistered Water Meter</a>
+         <p class="service-description">Register a meter that is already installed but not yet in the system.</p>
+         <a href="register_delivery.html" class="service-link" onclick="fadeToPage(event, this.href)">Register an Unregistered Water Meter</a>
       </div>
       <div class="card">
         <p class="service-description">Submit a formal complaint regarding service, billing, or staff behavior.</p>
