@@ -213,7 +213,7 @@ $user_name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest';
       <a href="company_info.php">Company Info</a>
       <a href="#">Home</a>
       <a href="meter_data.php">Meter Data</a>
-      <a href="#">Support & Help</a>
+      <a href="support_help.php">Support & Help</a>
     </div>
     <div class="profile-menu">
       <button onclick="toggleDropdown()" title="Personal Profile"><i class="fas fa-user"></i></button>
@@ -222,7 +222,7 @@ $user_name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest';
         <a href="edit_info.php">Edit Info</a>
         <a href="pay_bill.php">Pay Bill</a>
         <a href="my_requests.php">My Requests</a>
-        <a href="#">Log out</a>
+        <a href="client_login.html">Log out</a>
       </div>
     </div>
   </header>
@@ -240,19 +240,19 @@ $user_name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest';
     <div class="services-column">
       <div class="card">
          <p class="service-description">Apply for a new water meter installation for your property.</p>
-         <a href="#" class="service-link">Request a New Water Meter</a>
+        <a href="new_delivery.html" class="service-link" onclick="fadeToPage(event, this.href)">Request a New Water Meter</a>
       </div>
       <div class="card">
-         <p class="service-description">Register a meter that is already installed but not yet in the system.</p>
-         <a href="register_delivery.html" class="service-link" onclick="fadeToPage(event, this.href)">Register an Unregistered Water Meter</a>
+        <p class="service-description">Register a meter that is already installed but not yet in the system.</p>
+        <a href="register_delivery.html" class="service-link" onclick="fadeToPage(event, this.href)">Register an Unregistered Water Meter</a>
       </div>
       <div class="card">
-        <p class="service-description">Submit a formal complaint regarding service, billing, or staff behavior.</p>
-        <a href="#" class="service-link">Raise a Complaint</a>
+        <p class="service-description">Submit a formal complaint regarding service, billing , or staff behavior.</p>
+        <a href="report_complaint.html" class="service-link" onclick="fadeToPage(event, this.href)">Raise a Complaint</a>
       </div>
       <div class="card">
         <p class="service-description">Request urgent maintenance or report water-related issues.</p>
-        <a href="#" class="service-link">Request Maintenance / Report</a>
+        <a href="maintenance.html" class="service-link" onclick="fadeToPage(event, this.href)">Request Maintenance / Report</a>
       </div>
     </div>
   </div>
