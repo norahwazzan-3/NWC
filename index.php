@@ -240,7 +240,7 @@ $user_name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest';
     <div class="services-column">
       <div class="card">
          <p class="service-description">Apply for a new water meter installation for your property.</p>
-        <a href="new_water_meter.html" class="service-link" onclick="fadeToPage(event, this.href)">Request a New Water Meter</a>
+        <a href="new_delivery.html" class="service-link" onclick="fadeToPage(event, this.href)">Request a New Water Meter</a>
       </div>
       <div class="card">
         <p class="service-description">Register a meter that is already installed but not yet in the system.</p>
@@ -248,7 +248,7 @@ $user_name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest';
       </div>
       <div class="card">
         <p class="service-description">Submit a formal complaint regarding service, billing , or staff behavior.</p>
-        <a href="raise_complaint.html" class="service-link" onclick="fadeToPage(event, this.href)">Raise a Complaint</a>
+        <a href="report_complaint.html" class="service-link" onclick="fadeToPage(event, this.href)">Raise a Complaint</a>
       </div>
       <div class="card">
         <p class="service-description">Request urgent maintenance or report water-related issues.</p>
