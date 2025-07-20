@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4f9;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to bottom, #007bff, #0056b3);
+  color: white;
+  padding: 20px;
+  min-height: 100vh;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.profile-button {
+  all: unset;
+  display: block;
+  width: 100%;
+  background: #1d6edb;
+  border-radius: 16px;
+  padding: 15px 10px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: background 0.3s;
+}
+
+.profile-button:hover {
+  background: #155bb5;
+}
+
+.profile-card-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.profile-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background-color: white;
+  object-fit: contain;
+}
+
+.profile-card-sidebar h3 {
+  font-size: 16px;
+  margin: 5px 0 2px;
+  font-weight: bold;
+}
+
+.profile-card-sidebar p {
+  font-size: 13px;
+  color: #d0e3ff;
+  margin: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+  font-weight: 500;
+}
+
+.dashboard {
+  flex: 1;
+  padding: 40px;
+}
+
+.dashboard h1 {
+  color: #007bff;
+  font-size: 28px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.task-card {
+  background: white;
+  border-left: 6px solid #007bff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+
+.task-card p {
+  margin: 5px 0;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: vertical;
+}
+
+input[type="file"] {
+  margin-top: 10px;
+}
+
+.actions {
+  margin-top: 15px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.start {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.complete {
+  background-color: #28a745;
+  color: white;
+}
+
+.badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.assigned {
+  background-color: #007bff;
+  color: white;
+}
+
+.in-progress {
+  background-color: #ffc107;
+  color: white;
+}
+
+.completed {
+  background-color: #28a745;
+  color: white;
+}

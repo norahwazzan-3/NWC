@@ -1,90 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>File a Complaint</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <meta charset="UTF-8">
+  <title>File a Complaint – National Water Portal</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-100 to-blue-200 min-h-screen flex items-center justify-center p-6">
+<body class="bg-gradient-to-br from-blue-100 to-white min-h-screen p-8">
 
-  <div class="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-4xl">
-    <div class="text-center mb-10">
-      <h2 class="text-4xl font-extrabold text-blue-800 mb-3">File a Complaint</h2>
-      <p class="text-gray-600 text-lg">Help us improve our service by submitting your complaint.</p>
+  <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-xl p-8">
+
+    <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center"> Water Consumption Awareness</h2>
+
+    <ul class="list-disc pl-5 text-gray-700 space-y-2 text-sm">
+      <li> Check for hidden leaks a dripping tap wastes up to 15 liters/day.</li>
+      <li> Monitor your usage and compare meter readings.</li>
+      <li> Use water-efficient fixtures to save up to 50% water.</li>
+      <li> Turn off taps when not in use while brushing or washing dishes.</li>
+      <li> Only run full loads in your washing machine and dishwasher.</li>
+      <li> Water gardens early morning or late evening to reduce evaporation.</li>
+      <li> Reuse rainwater or light rinse water for cleaning and watering plants.</li>
+      <li> Maintain proper water pressure to avoid pipe damage and waste.</li>
+      <li> Understand your water bill check for unexpected changes.</li>
+      <li> Before complaining, ensure no internal leak or increase in usage occurred.</li>
+    </ul>
+
+    <div class="mt-6">
+      <label class="inline-flex items-center space-x-2">
+        <input type="checkbox" id="agreeGuidelines" class="accent-blue-600" onchange="toggleComplaintForm()">
+        <span class="text-gray-800 font-medium">I have read and understood the water consumption guidelines</span>
+      </label>
     </div>
+  </div>
 
-    <form action="submit_request.php" method="POST" enctype="multipart/form-data" class="space-y-6">
-      <input type="hidden" name="service_type" value="report_issue" />
+  <!-- Complaint Form (initially hidden) -->
+  <div id="complaintForm" class="max-w-3xl mx-auto bg-white rounded-xl shadow-xl p-8 mt-8 hidden">
+    <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center"> File a Complaint</h2>
+    <p class="text-center text-sm text-gray-500 mb-6">Help us improve our service by submitting your complaint.</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form action="submit_complaint.php" method="POST" enctype="multipart/form-data" class="space-y-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label class="block mb-2 text-gray-700 font-medium">Select Area in KSA</label>
-          <select name="area" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400">
+          <label class="block text-sm font-medium text-gray-700">Select Area in KSA</label>
+          <select class="w-full border rounded px-3 py-2" required>
             <option value="">-- Select Area --</option>
-            <option value="riyadh">Riyadh</option>
-            <option value="jeddah">Jeddah</option>
-            <option value="dammam">Dammam</option>
-            <option value="makkah">Makkah</option>
-            <option value="madinah">Madinah</option>
-            <option value="abha">Abha</option>
-            <option value="tabuk">Tabuk</option>
-            <option value="alqassim">Al-Qassim</option>
-            <option value="other">Other</option>
+            <option>Central</option>
+            <option>Western</option>
+            <option>Eastern</option>
+            <option>Southern</option>
+            <option>Northern</option>
           </select>
         </div>
-
         <div>
-          <label class="block mb-2 text-gray-700 font-medium">Select City</label>
-          <select name="city" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400">
+          <label class="block text-sm font-medium text-gray-700">Select City</label>
+          <select class="w-full border rounded px-3 py-2" required>
             <option value="">-- Select City --</option>
-            <option value="buraydah">Buraydah</option>
-            <option value="unayzah">Unaizah</option>
-            <option value="hail">Hail</option>
-            <option value="jazan">Jazan</option>
-            <option value="najran">Najran</option>
-            <option value="al-khobar">Al-Khobar</option>
-            <option value="qatif">Qatif</option>
-            <option value="yanbu">Yanbu</option>
-            <option value="sakaka">Sakaka</option>
-            <option value="al-hasa">Al-Hasa</option>
+            <option>Riyadh</option>
+            <option>Jeddah</option>
+            <option>Dammam</option>
+            <option>Abha</option>
+            <option>Tabuk</option>
           </select>
-        </div>
-
-        <div class="md:col-span-2">
-          <label class="block mb-2 text-gray-700 font-medium">Address</label>
-          <input type="text" name="address" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400" />
-        </div>
-
-        <div class="md:col-span-2">
-          <label class="block mb-2 text-gray-700 font-medium">Complaint Type</label>
-          <select name="complaint_type" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400">
-            <option value="">-- Select --</option>
-            <option value="general">General Complaint</option>
-            <option value="behavior">Employee Behavior</option>
-            <option value="service_quality">Quality of Service</option>
-            <option value="bills">Bills</option>
-          </select>
-        </div>
-
-        <div class="md:col-span-2">
-          <label class="block mb-2 text-gray-700 font-medium">Complaint Description</label>
-          <textarea name="complaint_description" rows="4" required class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400"></textarea>
-        </div>
-
-        <div class="md:col-span-2">
-          <label class="block mb-2 text-gray-700 font-medium">Upload Image or Video (optional)</label>
-          <input type="file" name="attachment" accept="image/*,video/*" class="w-full px-4 py-2 border rounded-lg" />
         </div>
       </div>
-      
+
       <div>
-        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-3 rounded-xl shadow-md hover:from-blue-700 hover:to-blue-800 transition-all">
-          Submit Complaint
-        </button>
+        <label class="block text-sm font-medium text-gray-700">Address</label>
+        <input type="text" name="address" required class="w-full border rounded px-3 py-2">
       </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Complaint Type</label>
+        <select name="complaint_type" required class="w-full border rounded px-3 py-2">
+          <option value="">-- Select --</option>
+          <option>Billing Issue</option>
+          <option>Service Delay</option>
+          <option>Employee Behavior</option>
+          <option>Water Quality</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Complaint Description</label>
+        <textarea name="complaint_description" rows="4" required class="w-full border rounded px-3 py-2"></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Upload Image or Video (optional)</label>
+        <input type="file" name="media" class="w-full">
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white font-bold py-2 rounded hover:bg-blue-700 transition">
+        Submit Complaint
+      </button>
     </form>
   </div>
+  <a href="index.php" 
+        class="fixed bottom-6 right-6 bg-blue-600 text-white text-xl p-4 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 z-50"
+        title="Back to Home">
+      <i class="fas fa-home"></i>
+     </a>
+
+  <script>
+    function toggleComplaintForm() {
+      const checkbox = document.getElementById('agreeGuidelines');
+      const form = document.getElementById('complaintForm');
+      form.classList.toggle('hidden', !checkbox.checked);
+    }
+  </script>
 </body>
 </html>
-
