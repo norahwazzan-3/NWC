@@ -211,7 +211,6 @@ $user_name = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Guest';
   <header>
     <div class="nav-links">
       <a href="company_info.php">Company Info</a>
-      <a href="#">Home</a>
       <a href="meter_data.php">Meter Data</a>
       <a href="support_help.php">Support & Help</a>
     </div>
