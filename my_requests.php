@@ -1,3 +1,33 @@
+<?php
+session_start();
+include 'db.php'; // Database connection
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    die("Error: You must be logged in to view your requests.");
+}
+
+$user_id = $_SESSION['user_id'];
+
+// Fetch user requests
+$sql = "SELECT 
+          r.Request_ID,
+          r.Service_Type,
+          r.Request_Date,
+          s.Request_Status_name,
+          t.Full_Name AS Technician_Name,
+          r.Description
+        FROM request r
+        LEFT JOIN request_status s ON r.Request_Status_ID = s.Request_Status_ID
+        LEFT JOIN tasks tk ON r.Request_ID = tk.Request_ID
+        LEFT JOIN user t ON tk.Technician_ID = t.User_ID
+        WHERE r.User_ID = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +93,7 @@
   <div class="container">
     <h1>My Requests</h1>
 
+    <?php if ($result->num_rows > 0): ?>
     <table>
       <thead>
         <tr>
@@ -75,32 +106,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>R001</td>
-          <td>New Water Meter</td>
-          <td>2025-07-10</td>
-          <td>Pending</td>
-          <td>Ahmed Nasser</td>
-          <td>Request for a new water meter installation on property</td>
-        </tr>
-        <tr>
-          <td>R002</td>
-          <td>Maintenance</td>
-          <td>2025-07-11</td>
-          <td>Completed</td>
-          <td>Fatima Ali</td>
-          <td>Leakage reported in bathroom area, fixed by technician</td>
-        </tr>
-        <tr>
-          <td>R003</td>
-          <td>Complaint</td>
-          <td>2025-07-12</td>
-          <td>In Progress</td>
-          <td>Khalid Mansour</td>
-          <td>Complaint about high water bill and inaccurate readings</td>
-        </tr>
+        <?php while($row = $result->fetch_assoc()): ?>
+          <tr>
+            <td><?php echo htmlspecialchars($row['Request_ID']); ?></td>
+            <td><?php echo htmlspecialchars($row['Service_Type']); ?></td>
+            <td><?php echo htmlspecialchars($row['Request_Date']); ?></td>
+            <td><?php echo htmlspecialchars($row['Request_Status_name']); ?></td>
+            <td><?php echo htmlspecialchars($row['Technician_Name'] ?? 'Not Assigned'); ?></td>
+            <td><?php echo htmlspecialchars($row['Description']); ?></td>
+          </tr>
+        <?php endwhile; ?>
       </tbody>
     </table>
+    <?php else: ?>
+      <div class="placeholder">No requests found.</div>
+    <?php endif; ?>
   </div>
 </body>
 </html>
